@@ -1,0 +1,476 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+/* Menu Button Styles */
+.menu-button {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1001;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    text-shadow: 0 2px 4px rgb(0, 0, 0);
+}
+
+/* Menu Styles */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.3s ease;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.menu a:hover {
+    color: orange;
+}
+
+.menu.show {
+    left: 0;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #fff;
+    color: #000;
+}
+
+.dark-mode .social-icons a {
+    color: #000;
+}
+
+.dark-mode .menu {
+    background-color: rgba(209, 207, 207, 0.9);
+}
+
+.dark-mode .menu a {
+    color: #000;
+}
+
+.dark-mode .menu a:hover {
+    color: orange;
+}
+
+.dark-mode .menu-button {
+    color: #000;
+}
+
+.dark-mode .toggle-dark-mode {
+    color: #000;
+}
+
+.dark-mode .header {
+    position: relative;
+    background: linear-gradient(to top, #fff, rgba(255, 255, 255, 0.171)) no-repeat center center/cover, url('https://denamhon.com/wp-content/uploads/2025/01/den-am-hon-poster.jpg') no-repeat center center/cover;
+}
+
+.toggle-dark-mode {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1001;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-shadow: 0 2px 4px rgb(0, 0, 0);
+}
+
+/* Coundown style */
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.countdown div {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: 5px;
+    min-width: 120px;
+}
+
+.countdown span {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.countdown span {
+    font-size: 2rem;
+    display: block;
+}
+
+.countdown-container {
+    text-align: center;
+    padding: 1rem 2rem;
+}
+
+.countdown-title {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Social Icons Styles */
+.social-icons {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1001;
+}
+
+.social-icons a {
+    color: #8f8f8f;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-size: 1rem;
+    text-shadow: #0f0f0f 0 0 4px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+    text-shadow: 0 2px 4px rgb(0, 0, 0);
+}
+
+/* Header Styles */
+.header {
+    position: relative;
+    text-align: left;
+    background: linear-gradient(to top, #000000, rgba(0, 0, 0, 0.199)) no-repeat center center/cover, url('https://denamhon.com/wp-content/uploads/2025/01/den-am-hon-poster.jpg') no-repeat center center/cover;
+    height: 100vh;
+    padding: 2% 10%;
+    box-sizing: border-box;
+}
+
+.header iframe {
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    /* Tỷ lệ 16:9 */
+    border: 0;
+    display: block;
+
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin: 0;
+    padding-top: 10vh;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.header h1,
+.header p,
+.header iframe {
+    position: relative;
+    z-index: 2;
+}
+
+.header p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.header .additional-content {
+    margin-top: 1rem;
+    font-size: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.header .hashtag {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+}
+
+.header .header-content {
+    margin: unset;
+    margin-top: 2rem;
+    text-align: left
+}
+
+/* content section */
+.content {
+    padding: 5% 10%;
+}
+
+.content h1 {
+    color: #777;
+    display: flex;
+    align-items: center;
+}
+
+.content h1 img {
+    margin-right: 6px;
+    width: 50px;
+    height: 50px;
+}
+
+.content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Trailer Section */
+.trailer {
+    margin: 2rem 0;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.trailer iframe {
+    flex: 1 1 calc(33.333% - 1rem);
+    aspect-ratio: 16 / 9;
+    /* Tỷ lệ 16:9 */
+    border: 0;
+    display: block;
+
+}
+
+/* movie info*/
+.movie-info {
+    margin-top: 2rem;
+}
+
+.movie-info h2 {
+    font-size: 3rem;
+    color: orange;
+    margin-bottom: 1rem;
+}
+
+.movie-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.movie-info ul li {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #111;
+    color: #777;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    margin-top: 2rem;
+
+}
+
+/* Director Section */
+.director {
+    display: flex;
+    flex: 1 1;
+}
+
+.director .content {
+    padding: unset;
+}
+
+
+.director iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    /* Tỷ lệ 16:9 */
+    border: 0;
+    display: block;
+}
+
+.director .image img {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    box-sizing: border-box;
+}
+
+/* Breaking News */
+.news-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0;
+    padding-right: 5%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.news-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.news-item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border-radius: 10px;
+
+}
+
+.news-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.news-item p {
+    margin: 5px 0 0 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: left;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.pagination button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: orange;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+
+.pagination button:disabled {
+    background-color: #aaa;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 0.9rem;
+    }
+
+    .trailer iframe {
+        flex: 1 1 100%;
+    }
+
+    .director {
+        flex-direction: column;
+    }
+
+    .director .image img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 5%;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .news-item img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .pagination button {
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .social-icons {
+        display: none;
+    }
+
+    .header {
+        height: auto;
+        padding: 5%;
+        padding-top: 5rem;
+        /* Adjust for navbar height */
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 0.9rem;
+    }
+
+    .header iframe {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .countdown-title {
+        font-size: 1.5rem;
+    }
+
+    .countdown {
+        gap: 1rem;
+    }
+
+    .countdown div {
+        min-width: 80px;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .countdown span {
+        font-size: 1.8rem;
+    }
+}
+
