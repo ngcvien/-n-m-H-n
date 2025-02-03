@@ -1,3 +1,23 @@
+// Add this at the top of main.js
+let currentLang = 'en';
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+
+function toggleLanguage() {
+  const select = document.querySelector('.goog-te-combo');
+  if (select) {
+    currentLang = currentLang === 'en' ? 'vi' : 'en';
+    select.value = currentLang;
+    select.dispatchEvent(new Event('change'));
+  } else {
+    alert('Không tìm thấy phần tử dịch ngôn ngữ');
+  }
+}
+
+
+// ...existing code...
 
 const newsData = [
     {
@@ -107,3 +127,21 @@ const countdown = () => {
 };
 
 setInterval(countdown, 1000);
+
+/* filepath: /C:/HTML - CSS/Đèn Âm Hồn/main.js */
+// Add to existing main.js
+document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        observer.observe(item);
+    });
+});

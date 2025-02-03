@@ -6,15 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đèn Âm Hồn</title>
     <link rel="stylesheet" href="main.css">
+    <!-- Add Google Translate script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'vi',
+                includedLanguages: 'en,vi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </head>
 
 <body>
+    <div id="google_translate_element" style="display:none"></div>
+
 
     <button class="menu-button" onclick="toggleMenu()">☰</button>
 
     <button class="toggle-dark-mode" onclick="toggleDarkMode()">🌙</button>
 
+    <button class="language-switch" onclick="toggleLanguage()">🌐 VI/EN</button>
 
     <div class="menu" id="menu">
         <a href="#home">Home</a>
@@ -39,7 +54,7 @@
         <p>Chốn Tâm Thức trong Đèn Âm Hồn: Câu nối hai thế giới</p>
         <p class="additional-content" style="color: #969494;">"Chốn Tâm Thức" trong Đèn Âm Hồn và ý nghĩa thờ cúng tổ
             tiên được đạo diễn khéo léo lồng ghép "Chốn Tâm Thức" là không gian đặc biệt kết nối Âm Thế và Dương Thế,
-            nơi các cô hồn và ác quỷ chưa thể siêu thoát tìm cách quay...</p>
+            nơi các cô hồn và ác quỷ chưa thể siêu thoát tìm cách...</p>
         <iframe src="https://www.youtube.com/embed/pQtN0wQ_2YM" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
@@ -141,6 +156,24 @@
             </div>
         </div>
         <hr>
+                <div class="gallery-container">
+            <h1>Hình Ảnh Phim</h1>
+            <div class="gallery">
+                <div class="gallery-item fade-in">
+                    <img src="https://denamhon.com/wp-content/uploads/2025/01/den-am-hon-poster.jpg" alt="Đèn Âm Hồn 1">
+                    <div class="overlay">Poster Chính Thức</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://denamhon.com/wp-content/uploads/2025/01/hoang-nam-den-am-hon-300x300.jpg" alt="Đèn Âm Hồn 2">
+                    <div class="overlay">Hậu Trường</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://denamhon.com/wp-content/uploads/2025/01/dao-dien-hoang-nam-youtuber-300x225.png" alt="Đèn Âm Hồn 3">
+                    <div class="overlay">Đạo Diễn</div>
+                </div>
+            </div>
+        </div>
+        <hr>
         <div>
             <h1>
                 <img src="https://icones.pro/wp-content/uploads/2021/06/icone-de-nouvelles-gris.png" alt="">
@@ -155,7 +188,9 @@
             <button onclick="nextPage()" id="nextBtn">Trang sau</button>
         </div>
         <hr>
+        
     </div>
+    
     <script src="main.js"></script>
     <footer>
         &copy; 2025 Đèn Âm Hồn. All rights reserved.
