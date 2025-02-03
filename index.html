@@ -210,6 +210,23 @@
         <hr>
 
     </div>
+        <div class="audio-player">
+        <div class="visualizer-container">
+            <canvas id="visualizer"></canvas>
+        </div>
+        <div class="audio-controls">
+            <button class="audio-btn" onclick="toggleAudio()">
+                <i class="fas fa-play" id="playIcon"></i>
+            </button>
+            <div class="track-info">
+                <span id="trackName">Âm Hồn OST</span>
+            </div>
+            <input type="range" id="volumeSlider" min="0" max="100" value="50">
+        </div>
+    </div>
+    
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <script src="main.js"></script>
     <footer>
