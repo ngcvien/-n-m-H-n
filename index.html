@@ -19,9 +19,21 @@
     <script type="text/javascript"
         src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
 </head>
 
 <body>
+    <div class="preloader">
+        <div class="loader">
+            <div class="lantern">
+                <div class="light"></div>
+            </div>
+            <p>Đang tải...</p>
+        </div>
+    </div>
+
     <div id="google_translate_element" style="display:none"></div>
 
 
@@ -156,7 +168,7 @@
             </div>
         </div>
         <hr>
-                <div class="gallery-container">
+        <div class="gallery-container">
             <h1>Hình Ảnh Phim</h1>
             <div class="gallery">
                 <div class="gallery-item fade-in">
@@ -164,11 +176,13 @@
                     <div class="overlay">Poster Chính Thức</div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://denamhon.com/wp-content/uploads/2025/01/hoang-nam-den-am-hon-300x300.jpg" alt="Đèn Âm Hồn 2">
+                    <img src="https://denamhon.com/wp-content/uploads/2025/01/hoang-nam-den-am-hon-300x300.jpg"
+                        alt="Đèn Âm Hồn 2">
                     <div class="overlay">Hậu Trường</div>
                 </div>
                 <div class="gallery-item fade-in">
-                    <img src="https://denamhon.com/wp-content/uploads/2025/01/dao-dien-hoang-nam-youtuber-300x225.png" alt="Đèn Âm Hồn 3">
+                    <img src="https://denamhon.com/wp-content/uploads/2025/01/dao-dien-hoang-nam-youtuber-300x225.png"
+                        alt="Đèn Âm Hồn 3">
                     <div class="overlay">Đạo Diễn</div>
                 </div>
             </div>
@@ -188,9 +202,9 @@
             <button onclick="nextPage()" id="nextBtn">Trang sau</button>
         </div>
         <hr>
-        
+
     </div>
-    
+
     <script src="main.js"></script>
     <footer>
         &copy; 2025 Đèn Âm Hồn. All rights reserved.
