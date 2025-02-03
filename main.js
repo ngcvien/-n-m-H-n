@@ -416,11 +416,198 @@ function initPreloader() {
             setTimeout(() => {
                 preloader.style.display = 'none';
             }, 500);
-        }, 1500);
+        }, 700);
     });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     initPreloader();
+    // ...existing code...
+});
+
+/* filepath: /C:/HTML - CSS/Đèn Âm Hồn/main.js */
+class GhostLantern {
+    constructor() {
+        this.lantern = document.querySelector('.floating-lantern');
+        this.smoke = [];
+        this.initSmoke();
+        this.initEvents();
+    }
+
+    initEvents() {
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX - window.innerWidth/2) / 50;
+            const y = (e.clientY - window.innerHeight/2) / 50;
+            this.lantern.style.transform = `translateY(-50%) rotateX(${y}deg) rotateY(${x}deg)`;
+        });
+    }
+
+    initSmoke() {
+        const container = document.querySelector('.smoke-container');
+        for(let i = 0; i < 5; i++) {
+            const smoke = document.createElement('div');
+            smoke.className = 'smoke';
+            container.appendChild(smoke);
+            this.animateSmoke(smoke);
+        }
+    }
+
+    animateSmoke(particle) {
+        const randomX = Math.random() * 60 - 30;
+        const duration = 2000 + Math.random() * 3000;
+        
+        particle.style.transition = `all ${duration}ms ease-out`;
+        particle.style.bottom = '20px';
+        particle.style.left = '30px';
+        
+        setTimeout(() => {
+            particle.style.transform = `translate(${randomX}px, -80px)`;
+            particle.style.opacity = '0';
+            
+            setTimeout(() => {
+                particle.style.transition = 'none';
+                particle.style.transform = 'none';
+                particle.style.opacity = '1';
+                this.animateSmoke(particle);
+            }, duration);
+        }, 10);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    new GhostLantern();
+    // ...existing code...
+});
+
+// audio
+/* filepath: /C:/HTML - CSS/Đèn Âm Hồn/main.js */
+class AudioController {
+    constructor() {
+        this.audio = new Audio();
+        this.audio.src = 'Bạn thỏ tivi nhỏ.mp3';
+        this.isPlaying = false;
+        this.analyzer = null;
+        this.visualizer = document.getElementById('visualizer');
+        this.ctx = this.visualizer.getContext('2d');
+        this.initAudio();
+    }
+
+    initAudio() {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const source = audioContext.createMediaElementSource(this.audio);
+        this.analyzer = audioContext.createAnalyser();
+        source.connect(this.analyzer);
+        this.analyzer.connect(audioContext.destination);
+        this.drawVisualizer();
+
+        document.getElementById('volumeSlider').addEventListener('input', (e) => {
+            this.audio.volume = e.target.value / 100;
+        });
+    }
+
+    togglePlay() {
+        if (this.isPlaying) {
+            this.audio.pause();
+            document.getElementById('playIcon').className = 'fas fa-play';
+        } else {
+            this.audio.play();
+            document.getElementById('playIcon').className = 'fas fa-pause';
+        }
+        this.isPlaying = !this.isPlaying;
+    }
+
+    drawVisualizer() {
+        const bufferLength = this.analyzer.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+        const width = this.visualizer.width;
+        const height = this.visualizer.height;
+        
+        const draw = () => {
+            requestAnimationFrame(draw);
+            this.analyzer.getByteFrequencyData(dataArray);
+            this.ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+            this.ctx.fillRect(0, 0, width, height);
+            
+            const barWidth = width / bufferLength * 2.5;
+            let x = 0;
+            
+            for(let i = 0; i < bufferLength; i++) {
+                const barHeight = dataArray[i] / 2;
+                this.ctx.fillStyle = `hsl(${i/bufferLength * 360}, 100%, 50%)`;
+                this.ctx.fillRect(x, height - barHeight, barWidth, barHeight);
+                x += barWidth + 1;
+            }
+        };
+        draw();
+    }
+}
+
+function toggleAudio() {
+    window.audioController = window.audioController || new AudioController();
+    window.audioController.togglePlay();
+}
+
+//  Character Spirits Animation
+/* filepath: /C:/HTML - CSS/Đèn Âm Hồn/main.js */
+class SpiritAnimation {
+    constructor() {
+        this.spirits = document.querySelectorAll('.spirit');
+        this.init();
+    }
+
+    init() {
+        this.spirits.forEach(spirit => {
+            this.positionSpirit(spirit);
+            this.animateSpirit(spirit);
+        });
+
+        document.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+    }
+
+    positionSpirit(spirit) {
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        spirit.style.left = `${x}px`;
+        spirit.style.top = `${y}px`;
+    }
+
+    animateSpirit(spirit) {
+        const duration = 8000 + Math.random() * 4000;
+        const delay = Math.random() * 2000;
+        
+        spirit.style.animationDuration = `${duration}ms`;
+        spirit.style.animationDelay = `${delay}ms`;
+
+        setInterval(() => {
+            this.positionSpirit(spirit);
+            spirit.style.opacity = '0';
+            setTimeout(() => {
+                spirit.style.transition = 'opacity 2s';
+                spirit.style.opacity = '1';
+            }, 100);
+        }, duration + delay);
+    }
+
+    handleMouseMove(e) {
+        this.spirits.forEach(spirit => {
+            const rect = spirit.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const distance = Math.sqrt(x * x + y * y);
+            
+            if (distance < 200) {
+                const angle = Math.atan2(y, x);
+                const speed = parseFloat(spirit.dataset.speed);
+                spirit.style.transform = `translate(
+                    ${Math.cos(angle) * -20 * speed}px,
+                    ${Math.sin(angle) * -20 * speed}px
+                )`;
+            }
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    new SpiritAnimation();
     // ...existing code...
 });
